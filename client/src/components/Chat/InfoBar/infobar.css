@@ -1,0 +1,42 @@
+.infobar-container {
+  color: #f2f2f2;
+  width: 100%;
+}
+
+#left {
+  float: left;
+  width: 100px;
+  margin-top: 2px;
+}
+#right {
+  float: right;
+  width: 60px;
+  margin-top: 2px;
+}
+#center {
+  margin: 0 auto;
+  width: 250px;
+  color: #f2f2f2;
+  font-size: 20px;
+  font-family: "Montserrat Light";
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.infobar-goback-button {
+  background: transparent;
+  color: rgba(242, 242, 242, 0.5);
+  font-size: 14px;
+  font-family: "Montserrat Light";
+  cursor: pointer;
+  border: 0;
+}
+
+.infobar-logout-button {
+  background: transparent;
+  color: rgba(242, 242, 242, 0.5);
+  font-size: 16px;
+  font-family: "Montserrat Light";
+  cursor: pointer;
+  border: 0;
+}

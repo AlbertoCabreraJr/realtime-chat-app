@@ -1,0 +1,67 @@
+.form-box {
+  width: 380px;
+  height: 480px;
+  position: relative;
+  margin: 8% auto;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.title {
+  color: #f2f2f2;
+  text-align: center;
+  font-size: x-large;
+  font-family: "Montserrat Light";
+  letter-spacing: 6px;
+  margin-bottom: 25px;
+}
+
+.input-group {
+  position: absolute;
+  left: 0px;
+  transition: "1s";
+}
+
+.input-field {
+  left: 45px;
+  width: 70%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid rgba(242, 242, 242, 0.5);
+  color: #f2f2f2;
+  font-family: "Montserrat Light";
+  font-size: 16px;
+  padding: 5px 5px 5px 10px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.go-button {
+  margin: 20px 0 0 56px;
+  width: 280px;
+  height: 35px;
+  border-radius: 10px;
+  background: transparent;
+  outline: 0;
+  color: #f2f2f2;
+  font-size: 14px;
+  font-family: "Montserrat Light";
+  cursor: pointer;
+  border: 1px solid #f2f2f2;
+}
+
+.toggle-button {
+  top: 230px;
+  right: 53px;
+  width: 280px;
+  height: 35px;
+  background: transparent;
+  color: rgba(242, 242, 242, 0.5);
+  font-size: 15px;
+  font-family: "Montserrat Light";
+  cursor: pointer;
+  border: 0;
+  position: absolute;
+}
