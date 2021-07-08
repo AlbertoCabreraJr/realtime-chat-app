@@ -11,8 +11,8 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    // origin: "https://room-app.netlify.app",
-    origin: "http://localhost:3000",
+    origin: "https://room-app.netlify.app",
+    // origin: "http://localhost:3000",
     methods: ["GET", "POST", "DELETE"],
   },
 });
@@ -63,8 +63,8 @@ const PORT = process.env.PORT || 5000;
 
 mongoose
   .connect(
-    // "mongodb+srv://room-app:room-app@cluster0.vp6u9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    "mongodb://localhost/roomApp",
+    "mongodb+srv://room-app:room-app@cluster0.vp6u9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    // "mongodb://localhost/roomApp",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
