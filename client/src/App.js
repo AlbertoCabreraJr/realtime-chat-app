@@ -3,10 +3,20 @@ import Home from "./components/Home/Home";
 import Chat from "./components/Chat/Chat";
 
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
-  const [room, setRoom] = useState(JSON.parse(localStorage.getItem("room")));
+  // const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  // const [room, setRoom] = useState(JSON.parse(localStorage.getItem("room")));
+
+  let setUser;
+  let room;
+  let setRoom;
+  const user = useSelector((state) => state.user);
+
+  // useEffect(() => {
+  //   user = useSelector((state) => state.user);
+  // }, []);
 
   return (
     <>

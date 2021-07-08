@@ -27,7 +27,8 @@ export const register =
       await api.register({ name, email, password });
       alert("You are now registered.");
     } catch (error) {
-      alert(error.response.data.message);
+      // alert(error.response.data.message);
+      alert(error);
     }
   };
 
