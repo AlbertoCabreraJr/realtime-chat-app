@@ -5,7 +5,7 @@ import { signIn, register } from "../../store/users";
 
 import { useDispatch } from "react-redux";
 
-const Auth = ({ setUser }) => {
+const Auth = () => {
   const [isRegister, setIsRegister] = useState(false);
   const ref = useRef();
   const dispatch = useDispatch();
@@ -48,7 +48,6 @@ const Auth = ({ setUser }) => {
         signIn({
           email: form.emailLogin,
           password: form.passwordLogin,
-          setUser,
         })
       );
     }

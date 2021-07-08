@@ -12,7 +12,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     // origin: "https://room-app.netlify.app",
-    origin: "http://localhost:5000",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST", "DELETE"],
   },
 });

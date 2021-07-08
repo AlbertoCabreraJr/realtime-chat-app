@@ -15,3 +15,7 @@ API.interceptors.request.use((req) => {
 
 export const signin = (data) => API.post("/api/users/signin", data);
 export const register = (data) => API.post("/api/users/register", data);
+
+export const createRoom = (data) => API.post("/api/rooms", data);
+export const sendMessageRoom = (data) => API.post("/api/rooms", data);
+export const getRoom = (roomID) => API.get(`/api/rooms/${roomID}`);
