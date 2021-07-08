@@ -50,6 +50,14 @@ export const sendMessage = async ({ room, user, text }) => {
   }
 };
 
+export const deleteRoom = async ({ room, user }) => {
+  try {
+    await api.deleteRoom(room.roomID, user.name);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const roomReducer = (
   state = JSON.parse(localStorage.getItem("room")),
   { type, payload }

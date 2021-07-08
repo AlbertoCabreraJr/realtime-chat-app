@@ -4,16 +4,20 @@ import Input from "./Input/Input";
 
 import "./chat.css";
 
-import axios from "axios";
 import io from "socket.io-client";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { removeRoom, getRoomMessages, sendMessage } from "../../store/rooms";
+import {
+  removeRoom,
+  getRoomMessages,
+  sendMessage,
+  deleteRoom,
+} from "../../store/rooms";
 import { logout } from "../../store/users";
+import { URL } from "../../store/api";
 
 let socket;
-const ENDPOINT = "http://localhost:5000";
 
 const Chat = () => {
   const [message, setMessage] = useState("");
@@ -23,7 +27,7 @@ const Chat = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    socket = io(ENDPOINT);
+    socket = io(URL);
 
     getRoomMessages(room)
       .then((messages) => {
@@ -66,11 +70,8 @@ const Chat = () => {
 
     socket.disconnect();
 
-    axios
-      .delete(`${ENDPOINT}/api/rooms/${room.roomID}/${currentUser.name}`)
-      .then(({ data }) => {
-        console.log(data);
-      })
+    deleteRoom({ room, user: currentUser })
+      .then()
       .catch((err) => console.log(err));
   };
 
@@ -81,11 +82,8 @@ const Chat = () => {
     dispatch(logout());
     socket.disconnect();
 
-    axios
-      .delete(`${ENDPOINT}/api/rooms/${room.roomID}/${currentUser.name}`)
-      .then(({ data }) => {
-        console.log(data);
-      })
+    deleteRoom({ room, user: currentUser })
+      .then()
       .catch((err) => console.log(err));
   };
 
