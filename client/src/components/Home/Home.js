@@ -1,34 +1,25 @@
 import "./home.css";
-
-import axios from "axios";
 import { useDispatch } from "react-redux";
-import { LOGOUT } from "../../store/users";
 import { useRef } from "react";
+import { logout } from "../../store/users";
+import { setRoom } from "../../store/rooms";
+import { useSelector } from "react-redux";
 
-const Home = ({ setUser, user, setRoom }) => {
+const Home = () => {
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const ref = useRef();
 
   const handleLogout = () => {
-    setUser(null);
-    dispatch({ type: LOGOUT });
+    dispatch(logout());
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const room = ref.current.value;
+    const roomName = ref.current.value;
 
     try {
-      const {
-        data: { roomID },
-      } = await axios.post("https://room-app-server.herokuapp.com/api/rooms", {
-        roomName: room,
-        user: user.name,
-        text: "",
-      });
-
-      localStorage.setItem("room", JSON.stringify({ roomName: room, roomID }));
-      setRoom({ roomName: room, roomID: roomID });
+      dispatch(setRoom({ roomName, user, text: "" }));
     } catch (error) {
       console.log(error);
     }
@@ -51,7 +42,6 @@ const Home = ({ setUser, user, setRoom }) => {
             maxLength={16}
             required
           />
-
           <button type="submit" className="home-go-button">
             Go
           </button>

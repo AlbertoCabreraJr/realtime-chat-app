@@ -4,23 +4,34 @@ import Input from "./Input/Input";
 
 import "./chat.css";
 
-import axios from "axios";
 import io from "socket.io-client";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import {
+  removeRoom,
+  getRoomMessages,
+  sendMessage,
+  deleteRoom,
+} from "../../store/rooms";
+import { logout } from "../../store/users";
+import { URL } from "../../store/api";
 
 let socket;
-const ENDPOINT = "https://room-app-server.herokuapp.com";
 
-const Chat = ({ user: currentUser, room, setUser, setRoom }) => {
+const Chat = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  useEffect(() => {
-    socket = io(ENDPOINT);
+  const currentUser = useSelector((state) => state.user);
+  const room = useSelector((state) => state.room);
+  const dispatch = useDispatch();
 
-    axios
-      .get(`${ENDPOINT}/api/rooms/${room.roomID}`)
-      .then(({ data }) => {
-        if (data.length) setMessages([...data]);
+  useEffect(() => {
+    socket = io(URL);
+
+    getRoomMessages(room)
+      .then((messages) => {
+        if (messages.length) setMessages([...messages]);
         socket.emit("join", {
           roomName: room.roomName,
           user: currentUser,
@@ -46,14 +57,7 @@ const Chat = ({ user: currentUser, room, setUser, setRoom }) => {
         text: message,
       });
 
-      axios
-        .post(`${ENDPOINT}/api/rooms`, {
-          roomName: room.roomName,
-          user: currentUser.name,
-          text: message,
-        })
-        .then(() => {})
-        .catch((err) => console.log(err));
+      sendMessage({ room, user: currentUser, text: message });
     }
 
     setMessage("");
@@ -62,30 +66,24 @@ const Chat = ({ user: currentUser, room, setUser, setRoom }) => {
   const goBackHandler = (e) => {
     e.preventDefault();
 
-    setRoom(null);
-    localStorage.removeItem("room");
+    dispatch(removeRoom());
+
     socket.disconnect();
-    axios
-      .delete(`${ENDPOINT}/api/rooms/${room.roomID}/${currentUser.name}`)
-      .then(({ data }) => {
-        console.log(data);
-      })
+
+    deleteRoom({ room, user: currentUser })
+      .then()
       .catch((err) => console.log(err));
   };
 
   const logoutHandler = (e) => {
     e.preventDefault();
 
-    setRoom(null);
-    setUser(null);
-    localStorage.removeItem("room");
-    localStorage.removeItem("profile");
+    dispatch(removeRoom());
+    dispatch(logout());
     socket.disconnect();
-    axios
-      .delete(`${ENDPOINT}/api/rooms/${room.roomID}/${currentUser.name}`)
-      .then(({ data }) => {
-        console.log(data);
-      })
+
+    deleteRoom({ room, user: currentUser })
+      .then()
       .catch((err) => console.log(err));
   };
 
@@ -96,7 +94,7 @@ const Chat = ({ user: currentUser, room, setUser, setRoom }) => {
         logoutHandler={logoutHandler}
         room={room}
       />
-      <Messages messages={messages} currentUser={currentUser.name} />
+      <Messages messages={messages} />
       <Input
         message={message}
         setMessage={setMessage}

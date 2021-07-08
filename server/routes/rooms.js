@@ -32,6 +32,7 @@ router.post("/", async (req, res) => {
 
     if (room) {
       room.messages.push(message);
+      room.users = room.users.filter((u) => u !== user);
       room.users.push(user);
       room.save();
 

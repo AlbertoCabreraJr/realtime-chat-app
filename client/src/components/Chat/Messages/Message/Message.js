@@ -1,9 +1,12 @@
 import "./message.css";
+import { useSelector } from "react-redux";
 
-const Message = ({ message: { text, user }, currentUser }) => {
+const Message = ({ message: { text, user } }) => {
+  const currentUser = useSelector((state) => state.user);
+
   let isSentByCurrentUser = false;
 
-  const trimmedCurrentUser = currentUser.trim();
+  const trimmedCurrentUser = currentUser.name.trim();
 
   if (user === trimmedCurrentUser) {
     isSentByCurrentUser = true;

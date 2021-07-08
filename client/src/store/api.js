@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://room-app-server.herokuapp.com/" });
+export const URL = "http://localhost:5000";
+// export const URL = "https://room-app-server.herokuapp.com";
+const API = axios.create({ baseURL: URL });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {
@@ -14,3 +16,9 @@ API.interceptors.request.use((req) => {
 
 export const signin = (data) => API.post("/api/users/signin", data);
 export const register = (data) => API.post("/api/users/register", data);
+
+export const createRoom = (data) => API.post("/api/rooms", data);
+export const sendMessageRoom = (data) => API.post("/api/rooms", data);
+export const getRoom = (roomID) => API.get(`/api/rooms/${roomID}`);
+export const deleteRoom = (roomID, username) =>
+  API.delete(`/api/rooms/${roomID}/${username}`);

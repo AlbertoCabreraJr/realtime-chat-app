@@ -6,7 +6,7 @@ export const LOGOUT = "LOGOUT";
 export const GET_USER = "GET_USER";
 
 export const signIn =
-  ({ email, password, setUser }) =>
+  ({ email, password }) =>
   async (dispatch) => {
     try {
       const {
@@ -14,7 +14,6 @@ export const signIn =
       } = await api.signin({ email, password });
 
       dispatch({ type: SIGN_IN, payload: { ...result, token } });
-      setUser(JSON.parse(localStorage.getItem("profile")));
     } catch (error) {
       alert(error.response.data.message);
     }
@@ -31,15 +30,26 @@ export const register =
     }
   };
 
-export const authReducer = (state = null, { type, payload }) => {
+export const logout = () => (dispatch) => {
+  try {
+    dispatch({ type: LOGOUT });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const authReducer = (
+  state = JSON.parse(localStorage.getItem("profile")),
+  { type, payload }
+) => {
   switch (type) {
     case SIGN_IN:
       localStorage.setItem("profile", JSON.stringify(payload));
-      return state;
+      return payload;
 
     case LOGOUT:
       localStorage.clear();
-      return state;
+      return null;
     default:
       return state;
   }
