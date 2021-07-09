@@ -1,6 +1,7 @@
 # Rooms
 
 A simple realtime chat application. You and your friends can create a room and start chatting. This is my first practice project for Summer 2021.
+
 ![image](https://user-images.githubusercontent.com/57309472/124804926-669ed480-df8d-11eb-967b-924561b00273.png)
 
 ## Getting Started
