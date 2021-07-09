@@ -45,6 +45,6 @@ You are now good to go!
 * [ExpressJS](https://expressjs.com/) - A framework I used to build the backend of my application. 
 * [NodeJS](https://nodejs.org/en/) - A Javascript runtime environment I used to install packages.
 * [ReactJS](https://rometools.github.io/rome/) - A framework I used to build the client side of my application.
-* [Socket.io](https://socket.io/) - A Javascript library I used for realtime data exchange between client and server.
+* [Socket.io](https://socket.io/) - A Javascript library I used for realtime data transmission.
 
 
