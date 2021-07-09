@@ -23,7 +23,7 @@ Clone this project
 git clone https://github.com/AlbertoCabreraJr/room-app.git
 ```
 
-In the root of the project, go to client directory, and install the packages.
+On the root of the project, go to client directory, and install the packages.
 
 ```
 cd client
@@ -32,6 +32,7 @@ npm i
 And for the server, go back to the root of the project, go to server directory and install the packages.
 
 ```
+cd ..
 cd server
 npm i
 ```
