@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// export const URL = "http://localhost:5000";
-export const URL = "https://room-app-server.herokuapp.com";
+export const URL = "http://localhost:5000";
 const API = axios.create({ baseURL: URL });
 
 API.interceptors.request.use((req) => {
