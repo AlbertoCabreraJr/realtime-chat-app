@@ -1,6 +1,6 @@
 # Rooms
 
-A simple realtime chat application with user authentication. You and your friends can create a room and start chatting. This is my first practice project for Summer 2021.
+A simple realtime chat application with user authentication. You and your friends can create a room and start chatting. 
 
    ![Capture](https://user-images.githubusercontent.com/57309472/125153147-5866d900-e184-11eb-99e2-ccbaea6fd67f.PNG)
 
