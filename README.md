@@ -1,9 +1,10 @@
 # Rooms
 
 A chat application that lets you create a room, where you and other people can communicate.
-![1](https://user-images.githubusercontent.com/57309472/128541197-9cf102a0-5821-49db-9d12-86c356326c73.PNG)
-![2](https://user-images.githubusercontent.com/57309472/128541203-b1d1372d-3fa5-4def-9cdc-fbab1f08823a.PNG)
-![3](https://user-images.githubusercontent.com/57309472/128541207-569c2efe-54e1-4e5f-a165-554a990bdab5.PNG)
+
+![1](https://user-images.githubusercontent.com/57309472/128541664-1519ec60-d5df-4842-828b-32a77b351eeb.PNG)
+![2](https://user-images.githubusercontent.com/57309472/128541671-b48f749b-7ff8-4342-8c00-71796004053c.PNG)
+![3](https://user-images.githubusercontent.com/57309472/128541674-d3ed4fc5-67f5-4de6-a012-63973aea6314.PNG)
 
 ## Built With
 
