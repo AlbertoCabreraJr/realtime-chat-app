@@ -1,7 +1,6 @@
 # Rooms
 
-A chat application that lets you communicate with other people (obviously). You can create a room, and other can join in it, and all of you can start communicating.
-
+A chat application that lets you create a room, where you and other people can communicate.
    ![Capture](https://user-images.githubusercontent.com/57309472/125153147-5866d900-e184-11eb-99e2-ccbaea6fd67f.PNG)
 
 ## Built With
